@@ -6,11 +6,13 @@
     
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
-    <%= render "admin/layout/header" %>
+    <%= render "admin/layouts/header" %>
     <%= yield %>
-    <%= render "admin/layout/footer" %>
+    <%= render "admin/layouts/footer" %>
   </body>
 </html>
