@@ -15,8 +15,7 @@
                         <th>ID</th>
                         <th>Email</th>
                         <th>Password</th>
-                        <th>Created_at</th>
-                        <th>Updated_at</th>
+                        <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -24,9 +23,8 @@
                         <tr>
                           <td><%= user.id %></td>
                           <td><%= user.email %></td>
-                          <td><%= user.password_digest %></td>
-                          <td><%= user.created_at %></td>
-                          <td><%= user.updated_at %></td>
+                          <td><%= user.encrypted_password %></td>
+                          <td><%= user.remember_created_at %></td>
                         </tr>
                       <% end %>
                     </tbody>

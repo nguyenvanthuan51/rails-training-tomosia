@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :rememberable, :validatable
   has_one :unpaid, -> { where(completed_at: false) }, class_name: Cart.name
   has_many :carts, -> { where completed_at: true }, dependent: :destroy
   has_one :cart_item, through: :unpaid
@@ -9,6 +13,5 @@ class User < ApplicationRecord
                     length: { maximum: 255 },
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
-  has_secure_password
-  validates :password, presence: true, length: { maximum: 6 }
+  validates :encrypted_password, presence: true, length: { minimum: 6 }
 end
