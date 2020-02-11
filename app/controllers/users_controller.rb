@@ -3,6 +3,5 @@ class UsersController < ApplicationController
   end
   
   def new
-    render 'register'
   end
 end
