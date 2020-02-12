@@ -1,5 +1,5 @@
 @import "bootstrap";
-@import "webkit";
+@import "global/mixin.scss";
 h3.h3 {
     text-align: center;
     margin: 1em;
@@ -215,7 +215,11 @@ img {
 }
 
 .preview {
-    @include webkit
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    @include webkit(vertical, normal, column, )
 }
 
 @media screen and (max-width: 996px) {
@@ -284,6 +288,10 @@ img {
 }
 
 .details {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     @include webkit
 }
 
