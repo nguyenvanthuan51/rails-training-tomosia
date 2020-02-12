@@ -4,12 +4,12 @@ class ProductsController < ApplicationController
   end
   
   def show
-    get_product
+    product
   end
 
   private
 
-  def get_product
-    @get_product = Product.find(params[:id])
+  def product
+    @product ||= Product.find(params[:id])
   end
 end
