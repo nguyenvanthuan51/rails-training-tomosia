@@ -5,7 +5,7 @@
       <div class="col-md-3 col-sm-6">
         <div class="product-grid2">
           <div class="product-image2">
-            <%= link_to image_tag("sunflower-selective-focus-photography-1366630.jpg", class: "card-img-top", alt: ""), "#" %>
+            <%= link_to image_tag("sunflower-selective-focus-photography-1366630.jpg", class: "card-img-top", alt: ""), product_path(id: product.id) %>
             <ul class="social">
               <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
               <li><a href="#" data-tip="Add to Wishlist"><i class="fa fa-shopping-bag"></i></a></li>
@@ -14,7 +14,11 @@
             <a class="add-to-cart" href="">Add to cart</a>
           </div>
           <div class="product-content">
-            <h3 class="title"><a href="#"><%= product.name %></a></h3>
+            <h3 class="title">
+              <%= link_to product_path(id: product.id) do %>
+                <%= product.name %>
+              <% end %>
+            </h3>
             <span class="price"><%= product.price %></span>
           </div>
         </div>
