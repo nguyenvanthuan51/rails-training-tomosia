@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   root 'users#index'
   resources :users
   resources :products
-  resources :cart
+  resources :carts
+  resources :cart_items
 
   namespace :admin do
     root "static_pages#index"

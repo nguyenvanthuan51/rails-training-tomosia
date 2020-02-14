@@ -1,0 +1,35 @@
+<div class="container">
+	<table id="cart" class="table table-hover table-condensed">
+  <thead>
+    <tr>
+      <th style="width:50%">Product</th>
+      <th style="width:10%">Price</th>
+      <th style="width:8%">Quantity</th>
+      <th style="width:22%" class="text-center">Subtotal</th>
+      <th style="width:10%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render(@cart.cart_items) %>
+  </tbody>
+  <tfoot>
+    <tr class="visible-xs">
+      <td class="text-center"><strong>Total 1.99</strong></td>
+  
+    </tr>
+    <tr>
+      <td>
+        <%= link_to products_path, class: "btn btn-warning" do %>
+          <i class="fa fa-angle-left"></i> Continue Shopping
+        <% end %>
+      <td colspan="2" class="hidden-xs"></td>
+      <td class="hidden-xs text-center"><strong>Total $150.00</strong></td>
+      <td>
+        <a href="https://www.paypal.com/webapps/shoppingcart?mfid=1546373779156_cb91e3a2b2dc7&flowlogging_id=cb91e3a2b2dc7#/checkout/shoppingCart" class="btn btn-success btn-block">
+          Checkout <i class="fa fa-angle-right"></i>
+        </a>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+</div>
