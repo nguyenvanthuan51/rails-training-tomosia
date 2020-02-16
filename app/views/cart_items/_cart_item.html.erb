@@ -10,9 +10,11 @@
     </td>
     <td data-th="Price"><%= number_to_currency(cart_item.product.price) %></td>
     <td data-th="Quantity">
-      <input type="number" class="form-control text-center" value="1"><%= cart_item.quantity %>
+    <%= form_for :cart do |f| %>
+      <%= f.number_field cart_item.quantity, class: "form-control text-center", value: "1" %>
+    <% end %>
     </td>
-    <td data-th="Subtotal" class="text-center"><%= number_to_currency(cart_item.sub_total) %></td>
+    <td data-th="Subtotal" class="text-center"><%= number_to_currency(cart_item.total_price) %></td>
     <td class="actions" data-th="">
       <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
       <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>

@@ -7,6 +7,7 @@ class CartsController < ApplicationController
   end
 
   def show
+    set_cart
   end
 
   def new
