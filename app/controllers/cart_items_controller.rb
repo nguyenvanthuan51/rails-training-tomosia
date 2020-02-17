@@ -17,14 +17,14 @@ class CartItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
-    unless product
-      flash[:alert] = "Product not found"
+    if !product.present?
+      redirect_to products_path, alert: "Product not found"
     end
     @cart_item = @cart.add_product(product)
     if @cart_item.save
       redirect_to @cart_item.cart, notice: "Item added to cart"
     else
-      render :new
+      render :new, alert: "Unsuccessful to add item"
     end
 
   end
@@ -33,9 +33,9 @@ class CartItemsController < ApplicationController
 
   def set_cart_item
     @cart_item = CartItem.find(params[:id])
-    unless @cart_item
-      flash[:alert] = "Cart item not found"
-    end
+    if !@cart_item.presents? 
+      redirect_to carts_path, alert: "Cart item not found"
+    end 
   end
 
   def cart_item_params

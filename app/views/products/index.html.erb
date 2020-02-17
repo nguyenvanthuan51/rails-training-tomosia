@@ -1,4 +1,7 @@
 <div class="container">
+  <% if alert %>
+    <p class="alert alert-primary"><%= alert %></p>
+  <% end %>
   <h3 class="h3">PRODUCTS </h3>
   <div class="row">
     <% @products.each do |product| %>

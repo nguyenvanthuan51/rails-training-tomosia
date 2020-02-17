@@ -28,9 +28,9 @@ class CartsController < ApplicationController
   private
 
   def set_cart
-    @cart = Cart.find(params[:id])
-    unless @cart
-      flash[:alert] = "Cart not found"
+    @cart = Cart.find_by_id(params[:id])
+    if !@cart.present?
+      redirect_to carts_path, alert: "Cart not found"
     end
   end
 
