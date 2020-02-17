@@ -7,7 +7,6 @@ class CartsController < ApplicationController
   end
 
   def show
-    set_cart
   end
 
   def new
@@ -22,7 +21,7 @@ class CartsController < ApplicationController
     if @cart.save
       redirect_to @cart, notice: "Cart was successfully created"
     else
-      render :new
+      render :new, alert: "Cart was unsuccessfully created"
     end
   end
 
@@ -30,6 +29,9 @@ class CartsController < ApplicationController
 
   def set_cart
     @cart = Cart.find(params[:id])
+    unless @cart
+      flash[:alert] = "Cart not found"
+    end
   end
 
   def cart_params

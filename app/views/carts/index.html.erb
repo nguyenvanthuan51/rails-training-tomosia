@@ -8,11 +8,7 @@
   </thead>
 
   <tbody>
-    <% @carts.each do |cart| %>
-      <tr>
-        <td><%= link_to 'Show', cart %></td>
-      </tr>
-    <% end %>
+    <%= render partial: "cart", collection: @carts %>
   </tbody>
 </table>
 

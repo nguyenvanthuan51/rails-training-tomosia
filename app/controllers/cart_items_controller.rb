@@ -1,5 +1,4 @@
 class CartItemsController < ApplicationController
-  include CurrentCart
   before_action :set_cart_item, only: [:show, :edit, :update, :destroy]
   before_action :set_cart, only: [:create]
   def index
@@ -18,6 +17,9 @@ class CartItemsController < ApplicationController
 
   def create
     product = Product.find(params[:product_id])
+    unless product
+      flash[:alert] = "Product not found"
+    end
     @cart_item = @cart.add_product(product)
     if @cart_item.save
       redirect_to @cart_item.cart, notice: "Item added to cart"
@@ -31,6 +33,9 @@ class CartItemsController < ApplicationController
 
   def set_cart_item
     @cart_item = CartItem.find(params[:id])
+    unless @cart_item
+      flash[:alert] = "Cart item not found"
+    end
   end
 
   def cart_item_params
