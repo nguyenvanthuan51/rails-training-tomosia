@@ -17,7 +17,9 @@
     <td data-th="Subtotal" class="text-center"><%= number_to_currency(cart_item.total_price) %></td>
     <td class="actions" data-th="">
       <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button>
-      <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+      <%= link_to cart_item, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-sm" do %>
+        <i class="fa fa-trash-o"></i>
+      <% end %>
     </td>
   </tr>
   
