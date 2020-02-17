@@ -36,7 +36,6 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
     redirect_to cart_path(@cart), notice: "Remove success cart item"
   end
-  
 
   private
 
