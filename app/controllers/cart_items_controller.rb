@@ -17,7 +17,7 @@ class CartItemsController < ApplicationController
 
   def create
     product = Product.find_by_id(params[:product_id])
-    if !product.present?
+    if product.blank?
       redirect_to cart_items_path, alert: "Product not found"
     end
     @cart_item = @cart.add_product(product)
@@ -32,7 +32,7 @@ class CartItemsController < ApplicationController
 
   def set_cart_item
     @cart_item = CartItem.find_by_id(params[:id])
-    if !@cart_item.present? 
+    if @cart_item.blank? 
       redirect_to carts_path, alert: "Cart item not found"
     end 
   end

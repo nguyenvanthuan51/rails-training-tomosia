@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
 
   def product
     @product ||= Product.find_by_id(params[:id])
-    if !@product.present?
+    if @product.blank?
       redirect_to products_path, alert: "Product not found"
     end
   end

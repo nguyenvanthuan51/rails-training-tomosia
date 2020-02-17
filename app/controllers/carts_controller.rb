@@ -29,7 +29,7 @@ class CartsController < ApplicationController
 
   def set_cart
     @cart = Cart.find_by_id(params[:id])
-    if !@cart.present?
+    if @cart.blank?
       redirect_to carts_path, alert: "Cart not found"
     end
   end
