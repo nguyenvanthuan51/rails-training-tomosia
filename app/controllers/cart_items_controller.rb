@@ -28,6 +28,15 @@ class CartItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @cart = Cart.find_by_id(session[:cart_id])
+    if @cart.blank?
+      redirect_to carts_path, alert: "Cart not found"
+    end
+    @cart_item.destroy
+    redirect_to cart_path(@cart), notice: "Remove success cart item"
+  end
+
   private
 
   def set_cart_item
