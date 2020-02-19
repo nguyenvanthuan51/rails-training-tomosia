@@ -28,6 +28,14 @@ class CartItemsController < ApplicationController
     end
   end
 
+  def update
+    if @cart_item.update(cart_item_params)
+      redirect_to @cart_item, notice: "Deleted successful"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_cart_item
